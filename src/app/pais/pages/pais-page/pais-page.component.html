@@ -1,0 +1,46 @@
+<h2>Por Pais</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <form autocomplete="off" (ngSubmit)="buscar()">
+      <input
+        type="text"
+        name="termino"
+        class="form-control"
+        [(ngModel)]="termino"
+      />
+    </form>
+  </div>
+</div>
+
+<div class="alert alert-danger mt-4" *ngIf="hayError">
+  No se encontró nada con el término {{ this.termino }}
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-hover" *ngIf="!hayError">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bandera</th>
+          <th>Nombre</th>
+          <th>Población</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pais">
+          <td>1</td>
+          <td>bandera</td>
+          <td>Chile</td>
+          <td>21.000.000</td>
+          <td>
+            <a href="#">Ver...</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

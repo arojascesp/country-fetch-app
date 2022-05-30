@@ -6,6 +6,9 @@ import { CapitalPageComponent } from './pages/capital-page/capital-page.componen
 import { RegionPageComponent } from './pages/region-page/region-page.component';
 import { PaisPageComponent } from './pages/pais-page/pais-page.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
+import { RouterModule } from '@angular/router';
+import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component';
+import { PaisInputComponent } from './components/pais-input/pais-input.component';
 
 
 
@@ -14,7 +17,9 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
     CapitalPageComponent,
     RegionPageComponent,
     PaisPageComponent,
-    VerPaisComponent
+    VerPaisComponent,
+    PaisTablaComponent,
+    PaisInputComponent
   ],
   exports: [
     CapitalPageComponent,
@@ -24,7 +29,8 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class PaisModule { }

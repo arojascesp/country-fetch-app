@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
 
 @Component({
   selector: 'app-ver-pais',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class VerPaisComponent implements OnInit {
+export class VerPaisComponent {
 
+  // @Input() pais: Country =
   constructor() { }
 
   ngOnInit(): void {

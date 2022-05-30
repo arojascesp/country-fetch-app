@@ -1,30 +1,34 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-pais-page',
   templateUrl: './pais-page.component.html',
-  styles: [
+  styleUrls: [
   ]
 })
 export class PaisPageComponent {
 
   termino: string = ''
   hayError: boolean = false
+  paises: Country[] = []
+
 
   constructor(private paisService: PaisService) { }
 
-  buscar(): void {
+  buscar(termino: string): void {
     this.hayError = false
-    console.log(this.termino)
+    this.termino = termino
 
-    if (this.termino.trim().length === 0) return
     this.paisService.buscarPais(this.termino)
-      .subscribe((resp) => {
-        console.log(resp)
-      }, err => {
+      .subscribe((paises) => {
+        console.log(paises)
+        this.paises = paises
+      } , err => {
         this.hayError = true
+        this.paises = []
         console.log('Error')
         console.info(err)
       })

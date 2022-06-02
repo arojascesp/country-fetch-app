@@ -1,1 +1,51 @@
-<div class="container d-flex flex-column"></div>
+<app-loader *ngIf="!pais"></app-loader>
+<div class="container d-flex flex-column" *ngIf="pais">
+  <h1 class="bg-dark text-white rounded text-center">{{ pais.name.common }}</h1>
+  <div class="row mt-5 bg-info rounded">
+    <div class="col-4 p-1 text-center">
+      <img
+        [src]="pais.flags.png"
+        [alt]="pais.name.official"
+        class="flag-medium"
+      />
+    </div>
+    <div
+      class="col-7 ml-2 border-start d-flex align-items-center justify-content-center"
+    >
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Nombre oficial</strong>: {{ pais.name.official }}
+        </li>
+        <li class="list-group-item">
+          <strong>Capital</strong>: {{ pais.capital }}
+        </li>
+        <li class="list-group-item">
+          <strong>Poblacion</strong>: {{ pais.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo</strong>: {{ pais.cca2 }}
+        </li>
+      </ul>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+      <div class="col">
+        <span class="badge bg-primary m-1">{{
+          pais.translations["ara"].common
+        }}</span>
+        <span class="badge bg-primary m-1">{{
+          pais.translations["ces"].common
+        }}</span>
+        <span class="badge bg-primary m-1">{{
+          pais.translations["fra"].common
+        }}</span>
+        <span class="badge bg-primary m-1">{{
+          pais.translations["ita"].common
+        }}</span>
+        <span class="badge bg-primary m-1">{{
+          pais.translations["jpn"].common
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>

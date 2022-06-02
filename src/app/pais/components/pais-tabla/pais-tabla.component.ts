@@ -8,5 +8,7 @@ import { Country } from '../../interfaces/pais.interface';
 export class PaisTablaComponent {
 
   @Input() paises: Country[] = []
-
+  pais(pais: Country) {
+    pais.name.nativeName
+  }
 }

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
+import { debounceTime, Subject } from 'rxjs';
 import { Country } from '../../interfaces/pais.interface';
 
 @Component({
@@ -10,26 +10,30 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class PaisInputComponent implements OnInit{
 
-  ngOnInit(): void {
-    this.debouncer.subscribe(termino => {
-      console.log('debouncer: ', termino)
-    })
-  }
-
   @Output() onEnter   : EventEmitter<string> = new EventEmitter()
   @Output() onDebounce: EventEmitter<string> = new EventEmitter()
+
+  @Input() placeholder: string = ''
 
   debouncer: Subject<string> = new Subject
 
   termino: string = ''
   paises : Country[] = []
 
+
   buscar(): void {
     this.onEnter.emit(this.termino)
   }
+  ngOnInit(): void {
+    this.debouncer
+      .pipe(debounceTime(300))
+      .subscribe(termino => {
+        this.onDebounce.emit(termino)
+    })
+  }
 
-  teclaPresionada(event: any) {
-
+  teclaPresionada() {
+    this.debouncer.next( this.termino )
   }
 
 

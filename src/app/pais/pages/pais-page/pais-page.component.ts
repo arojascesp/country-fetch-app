@@ -24,7 +24,7 @@ export class PaisPageComponent {
 
     this.paisService.buscarPais(this.termino)
       .subscribe((paises) => {
-        console.log(paises)
+        // console.log(paises)
         this.paises = paises
       } , err => {
         this.hayError = true
@@ -33,6 +33,11 @@ export class PaisPageComponent {
         console.info(err)
       })
     this.termino = ''
+  }
+
+  sugerencias(termino: string) {
+    this.hayError = false
+    // TODO: Crear sugerencias
   }
 
 }

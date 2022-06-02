@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -13,12 +14,14 @@ import { MenuComponent } from './menu/menu.component';
   declarations: [
     SidebarComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    LoaderComponent
   ],
   exports: [
     SidebarComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

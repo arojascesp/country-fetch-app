@@ -2,3 +2,7 @@
 .flag-small {
   max-width: 3em;
 }
+
+.flag-medium {
+  max-width: 15em;
+}

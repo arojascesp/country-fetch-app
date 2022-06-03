@@ -21,15 +21,17 @@ export class PaisInputComponent implements OnInit{
   paises : Country[] = []
 
 
-  buscar(): void {
-    this.onEnter.emit(this.termino)
-  }
+
   ngOnInit(): void {
     this.debouncer
       .pipe(debounceTime(300))
       .subscribe(termino => {
         this.onDebounce.emit(termino)
     })
+  }
+
+  buscar(): void {
+    this.onEnter.emit(this.termino)
   }
 
   teclaPresionada() {
